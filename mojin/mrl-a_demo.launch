@@ -1,0 +1,966 @@
+<launch>
+<rosparam>
+/joint_state_publisher/source_list: [move_group/fake_controller_joint_states]
+/joint_state_publisher/use_gui: false
+/move_group/allow_trajectory_execution: true
+/move_group/arm/default_planner_config: RRTConnect
+/move_group/arm/enforce_joint_model_state_space: true
+/move_group/arm/longest_valid_segment_fraction: 0.005
+/move_group/arm/maximum_waypoint_distance: 0.1
+/move_group/arm/planner_configs: [SBL, EST, LBKPIECE, BKPIECE, KPIECE, RRT, RRTConnect,
+  RRTstar, TRRT, PRM, PRMstar, FMT, BFMT, PDST, STRIDE, BiTRRT, LBTRRT, BiEST, ProjEST,
+  LazyPRM, LazyPRMstar, SPARS, SPARStwo]
+/move_group/arm/projection_evaluator: joints(torso_1_joint,torso_2_joint)
+/move_group/capabilities: ''
+/move_group/controller_list:
+- joints: [torso_1_joint, torso_2_joint, torso_3_joint, shoulder_1_joint, shoulder_2_joint,
+    wrist_1_joint, wrist_2_joint]
+  name: fake_arm_controller
+- joints: []
+  name: fake_gripper_ee_fixed_controller
+/move_group/default_workspace_bounds: 10
+/move_group/disable_capabilities: ''
+/move_group/jiggle_fraction: 0.05
+/move_group/max_range: 5.0
+/move_group/max_safe_path_cost: 1
+/move_group/max_sampling_attempts: 100
+/move_group/moveit_controller_manager: moveit_fake_controller_manager/MoveItFakeControllerManager
+/move_group/moveit_manage_controllers: true
+/move_group/octomap_resolution: 0.025
+/move_group/ompl/display_random_valid_states: false
+/move_group/ompl/link_for_exploration_tree: ''''''
+/move_group/ompl/maximum_waypoint_distance: 0.1
+/move_group/ompl/minimum_waypoint_count: 10
+/move_group/ompl/simplify_solutions: true
+/move_group/planner_configs/BFMT/balanced: 0
+/move_group/planner_configs/BFMT/cache_cc: 1
+/move_group/planner_configs/BFMT/extended_fmt: 1
+/move_group/planner_configs/BFMT/heuristics: 1
+/move_group/planner_configs/BFMT/nearest_k: 1
+/move_group/planner_configs/BFMT/num_samples: 1000
+/move_group/planner_configs/BFMT/optimality: 1
+/move_group/planner_configs/BFMT/radius_multiplier: 1.0
+/move_group/planner_configs/BFMT/type: geometric::BFMT
+/move_group/planner_configs/BKPIECE/border_fraction: 0.9
+/move_group/planner_configs/BKPIECE/failed_expansion_score_factor: 0.5
+/move_group/planner_configs/BKPIECE/min_valid_path_fraction: 0.5
+/move_group/planner_configs/BKPIECE/range: 0.0
+/move_group/planner_configs/BKPIECE/type: geometric::BKPIECE
+/move_group/planner_configs/BiEST/range: 0.0
+/move_group/planner_configs/BiEST/type: geometric::BiEST
+/move_group/planner_configs/BiTRRT/cost_threshold: 1e300
+/move_group/planner_configs/BiTRRT/frountier_node_ratio: 0.1
+/move_group/planner_configs/BiTRRT/frountier_threshold: 0.0
+/move_group/planner_configs/BiTRRT/init_temperature: 100
+/move_group/planner_configs/BiTRRT/range: 0.0
+/move_group/planner_configs/BiTRRT/temp_change_factor: 0.1
+/move_group/planner_configs/BiTRRT/type: geometric::BiTRRT
+/move_group/planner_configs/EST/goal_bias: 0.05
+/move_group/planner_configs/EST/range: 0.0
+/move_group/planner_configs/EST/type: geometric::EST
+/move_group/planner_configs/FMT/cache_cc: 1
+/move_group/planner_configs/FMT/extended_fmt: 1
+/move_group/planner_configs/FMT/heuristics: 0
+/move_group/planner_configs/FMT/nearest_k: 1
+/move_group/planner_configs/FMT/num_samples: 1000
+/move_group/planner_configs/FMT/radius_multiplier: 1.1
+/move_group/planner_configs/FMT/type: geometric::FMT
+/move_group/planner_configs/KPIECE/border_fraction: 0.9
+/move_group/planner_configs/KPIECE/failed_expansion_score_factor: 0.5
+/move_group/planner_configs/KPIECE/goal_bias: 0.05
+/move_group/planner_configs/KPIECE/min_valid_path_fraction: 0.5
+/move_group/planner_configs/KPIECE/range: 0.0
+/move_group/planner_configs/KPIECE/type: geometric::KPIECE
+/move_group/planner_configs/LBKPIECE/border_fraction: 0.9
+/move_group/planner_configs/LBKPIECE/min_valid_path_fraction: 0.5
+/move_group/planner_configs/LBKPIECE/range: 0.0
+/move_group/planner_configs/LBKPIECE/type: geometric::LBKPIECE
+/move_group/planner_configs/LBTRRT/epsilon: 0.4
+/move_group/planner_configs/LBTRRT/goal_bias: 0.05
+/move_group/planner_configs/LBTRRT/range: 0.0
+/move_group/planner_configs/LBTRRT/type: geometric::LBTRRT
+/move_group/planner_configs/LazyPRM/range: 0.0
+/move_group/planner_configs/LazyPRM/type: geometric::LazyPRM
+/move_group/planner_configs/LazyPRMstar/type: geometric::LazyPRMstar
+/move_group/planner_configs/PDST/type: geometric::PDST
+/move_group/planner_configs/PRM/max_nearest_neighbors: 10
+/move_group/planner_configs/PRM/type: geometric::PRM
+/move_group/planner_configs/PRMstar/type: geometric::PRMstar
+/move_group/planner_configs/ProjEST/goal_bias: 0.05
+/move_group/planner_configs/ProjEST/range: 0.0
+/move_group/planner_configs/ProjEST/type: geometric::ProjEST
+/move_group/planner_configs/RRT/goal_bias: 0.05
+/move_group/planner_configs/RRT/range: 0.0
+/move_group/planner_configs/RRT/type: geometric::RRT
+/move_group/planner_configs/RRTConnect/optimization_objective: PathLengthOptimizationObjective
+/move_group/planner_configs/RRTConnect/range: 0.0
+/move_group/planner_configs/RRTConnect/type: geometric::RRTConnect
+/move_group/planner_configs/RRTstar/delay_collision_checking: 1
+/move_group/planner_configs/RRTstar/goal_bias: 0.05
+/move_group/planner_configs/RRTstar/range: 0.0
+/move_group/planner_configs/RRTstar/type: geometric::RRTstar
+/move_group/planner_configs/SBL/range: 0.0
+/move_group/planner_configs/SBL/type: geometric::SBL
+/move_group/planner_configs/SPARS/dense_delta_fraction: 0.001
+/move_group/planner_configs/SPARS/max_failures: 1000
+/move_group/planner_configs/SPARS/sparse_delta_fraction: 0.25
+/move_group/planner_configs/SPARS/stretch_factor: 3.0
+/move_group/planner_configs/SPARS/type: geometric::SPARS
+/move_group/planner_configs/SPARStwo/dense_delta_fraction: 0.001
+/move_group/planner_configs/SPARStwo/max_failures: 5000
+/move_group/planner_configs/SPARStwo/sparse_delta_fraction: 0.25
+/move_group/planner_configs/SPARStwo/stretch_factor: 3.0
+/move_group/planner_configs/SPARStwo/type: geometric::SPARStwo
+/move_group/planner_configs/STRIDE/degree: 16
+/move_group/planner_configs/STRIDE/estimated_dimension: 0.0
+/move_group/planner_configs/STRIDE/goal_bias: 0.05
+/move_group/planner_configs/STRIDE/max_degree: 18
+/move_group/planner_configs/STRIDE/max_pts_per_leaf: 6
+/move_group/planner_configs/STRIDE/min_degree: 12
+/move_group/planner_configs/STRIDE/min_valid_path_fraction: 0.2
+/move_group/planner_configs/STRIDE/range: 0.0
+/move_group/planner_configs/STRIDE/type: geometric::STRIDE
+/move_group/planner_configs/STRIDE/use_projected_distance: 0
+/move_group/planner_configs/TRRT/frountierNodeRatio: 0.1
+/move_group/planner_configs/TRRT/frountier_threshold: 0.0
+/move_group/planner_configs/TRRT/goal_bias: 0.05
+/move_group/planner_configs/TRRT/init_temperature: 10e-6
+/move_group/planner_configs/TRRT/k_constant: 0.0
+/move_group/planner_configs/TRRT/max_states_failed: 10
+/move_group/planner_configs/TRRT/min_temperature: 10e-10
+/move_group/planner_configs/TRRT/range: 0.0
+/move_group/planner_configs/TRRT/temp_change_factor: 2.0
+/move_group/planner_configs/TRRT/type: geometric::TRRT
+/move_group/planning_plugin: ompl_interface/OMPLPlanner
+/move_group/planning_scene_monitor/publish_geometry_updates: true
+/move_group/planning_scene_monitor/publish_planning_scene: true
+/move_group/planning_scene_monitor/publish_state_updates: true
+/move_group/planning_scene_monitor/publish_transforms_updates: true
+/move_group/request_adapters: default_planner_request_adapters/AddTimeParameterization            default_planner_request_adapters/FixWorkspaceBounds            default_planner_request_adapters/FixStartStateBounds            default_planner_request_adapters/FixStartStateCollision            default_planner_request_adapters/FixStartStatePathConstraints
+/move_group/sensors:
+- {}
+/move_group/start_state_max_bounds_error: 0.1
+/move_group/start_state_max_dt: 0.5
+/move_group/trajectory_execution/allowed_execution_duration_scaling: 2.0
+/move_group/trajectory_execution/allowed_goal_duration_margin: 0.5
+/move_group/trajectory_execution/allowed_start_tolerance: 0.01
+/robot_description: "&lt;?xml version=\"1.0\" ?&gt;\n&lt;!-- ===================================================================================\
+  \ --&gt;\n&lt;!-- |    This document was autogenerated by xacro from /home/fxm/projects/default/robot_ws/src/mojin_robots/mojin_hardware_config/robots/mrl-a/urdf/robot.urdf.xacro\
+  \ | --&gt;\n&lt;!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                \
+  \                 | --&gt;\n&lt;!-- ===================================================================================\
+  \ --&gt;\n&lt;robot name=\"mrl-a\" xmlns:xacro=\"http://www.ros.org/wiki/xacro\"&gt;\n  &lt;material\
+  \ name=\"IPA/LightGrey\"&gt;\n    &lt;color rgba=\"0.7 0.7 0.7 1.0\"/&gt;\n  &lt;/material&gt;\n\
+  \  &lt;material name=\"IPA/DarkGrey\"&gt;\n    &lt;color rgba=\"0.4 0.4 0.4 1.0\"/&gt;\n  &lt;/material&gt;\n\
+  \  &lt;material name=\"IPA/Black\"&gt;\n    &lt;color rgba=\"0.0 0.0 0.0 1.0\"/&gt;\n  &lt;/material&gt;\n\
+  \  &lt;material name=\"IPA/Metall\"&gt;\n    &lt;color rgba=\"0.7 0.7 0.7 1.0\"/&gt;\n  &lt;/material&gt;\n\
+  \  &lt;material name=\"IPA/YellowRubber\"&gt;\n    &lt;color rgba=\"0.4 0.27 0.16 1.0\"/&gt;\n\
+  \  &lt;/material&gt;\n  &lt;material name=\"IPA/Orange\"&gt;\n    &lt;color rgba=\"1.0 0.4 0.0\
+  \ 1.0\"/&gt;\n  &lt;/material&gt;\n  &lt;material name=\"IPA/Blue\"&gt;\n    &lt;color rgba=\"0.0\
+  \ 0.0 0.5 1.0\"/&gt;\n  &lt;/material&gt;\n  &lt;!-- ***************************** --&gt;\n  &lt;!--\
+  \ extrinsic camera calibration  --&gt;\n  &lt;!-- ***************************** --&gt;\n\
+  \  &lt;!-- ***************************** --&gt;\n  &lt;!-- extrinsic camera calibration \
+  \ --&gt;\n  &lt;!-- ***************************** --&gt;\n  &lt;!-- Controller: 10.0, Driver:\
+  \ 12.0, Elmo: 15.0 --&gt;\n  &lt;link name=\"base_footprint\"/&gt;\n  &lt;joint name=\"base_footprint_joint\"\
+  \ type=\"fixed\"&gt;\n    &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n    &lt;parent link=\"\
+  base_footprint\"/&gt;\n    &lt;child link=\"base_link\"/&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"\
+  base_link\"/&gt;\n  &lt;joint name=\"base_chassis_joint\" type=\"fixed\"&gt;\n    &lt;origin\
+  \ rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n    &lt;parent link=\"base_link\"/&gt;\n    &lt;child link=\"\
+  base_chassis_link\"/&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"base_chassis_link\"&gt;\n    &lt;inertial&gt;\n\
+  \      &lt;origin xyz=\"0 0 0\"/&gt;\n      &lt;mass value=\"100\"/&gt;\n      &lt;inertia ixx=\"\
+  5.652232699207\" ixy=\"-0.009719934438\" ixz=\"1.293988226423\" iyy=\"5.669473158652\"\
+  \ iyz=\"-0.007379583694\" izz=\"3.683196351726\"/&gt;\n    &lt;/inertial&gt;\n    &lt;visual&gt;\n\
+  \      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"\
+  package://mojin_description/meshes/mrl_base/LUKA_PT1_Base.STL\"/&gt;\n        &lt;!--box\
+  \ size=\"0.01 0.01 0.01\" /--&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n\
+  \      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"\
+  package://mojin_description/meshes/mrl_base/LUKA_PT1_Base.STL\"/&gt;\n        &lt;!--box\
+  \ size=\"0.01 0.01 0.01\" /--&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n\
+  \  &lt;joint name=\"base_charger_joint\" type=\"fixed\"&gt;\n    &lt;origin rpy=\"0 0 0\"\
+  \ xyz=\"0.2992 0.0 0.09089\"/&gt;\n    &lt;parent link=\"base_chassis_link\"/&gt;\n    &lt;child\
+  \ link=\"base_charger_link\"/&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"base_charger_link\"/&gt;\n\
+  \  &lt;joint name=\"fl_caster_rotation_joint\" type=\"continuous\"&gt;\n    &lt;origin rpy=\"\
+  0 0 0\" xyz=\"0.12422 0.21515 0.0782\"/&gt;\n    &lt;parent link=\"base_chassis_link\"\
+  /&gt;\n    &lt;child link=\"fl_caster_rotation_link\"/&gt;\n    &lt;axis xyz=\"0 0 1\"/&gt;\n \
+  \   &lt;safety_controller k_velocity=\"10\"/&gt;\n    &lt;limit effort=\"100\" velocity=\"\
+  12.0\"/&gt;\n    &lt;dynamics damping=\"0.0\" friction=\"0.0\"/&gt;\n  &lt;/joint&gt;\n  &lt;link\
+  \ name=\"fl_caster_rotation_link\"&gt;\n    &lt;inertial&gt;\n      &lt;origin xyz=\"0 0 0\"\
+  /&gt;\n      &lt;mass value=\"5.9\"/&gt;\n      &lt;inertia ixx=\"0.04\" ixy=\"-0.0007\" ixz=\"\
+  0.0\" iyy=\"0.02\" iyz=\"-0.000004\" izz=\"0.05\"/&gt;\n    &lt;/inertial&gt;\n    &lt;visual&gt;\n\
+  \      &lt;geometry&gt;\n        &lt;mesh filename=\"package://cob_description/meshes/drive_wheel/caster.stl\"\
+  /&gt;\n      &lt;/geometry&gt;\n      &lt;material name=\"IPA/LightGrey\"/&gt;\n    &lt;/visual&gt;\n\
+  \    &lt;collision&gt;\n      &lt;geometry&gt;\n        &lt;box size=\"0.001 0.001 0.001\"/&gt;\n\
+  \      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;transmission name=\"fl_caster_rotation_trans\"\
+  &gt;\n    &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n    &lt;joint name=\"\
+  fl_caster_rotation_joint\"&gt;\n      &lt;hardwareInterface&gt;hardware_interface/PositionJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"fl_caster_rotation_motor\"&gt;\n      &lt;mechanicalReduction&gt;-79.2380952381&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;joint name=\"fl_caster_r_wheel_joint\" type=\"\
+  continuous\"&gt;\n    &lt;origin rpy=\"0 0 0\" xyz=\"0 -0.0 0\"/&gt;\n    &lt;parent link=\"\
+  fl_caster_rotation_link\"/&gt;\n    &lt;child link=\"fl_caster_r_wheel_link\"/&gt;\n    &lt;axis\
+  \ xyz=\"0 1 0\"/&gt;\n    &lt;safety_controller k_velocity=\"10\"/&gt;\n    &lt;limit effort=\"\
+  100\" velocity=\"19.95\"/&gt;\n    &lt;dynamics damping=\"0.0\" friction=\"0.0\"/&gt;\n \
+  \ &lt;/joint&gt;\n  &lt;link name=\"fl_caster_r_wheel_link\"&gt;\n    &lt;inertial&gt;\n      &lt;origin\
+  \ xyz=\"0 0 0\"/&gt;\n      &lt;mass value=\"0.44036\"/&gt;\n      &lt;inertia ixx=\"0.012411765597\"\
+  \ ixy=\"-0.000711733678\" ixz=\"0.00050272983\" iyy=\"0.015218160428\" iyz=\"-0.000004273467\"\
+  \ izz=\"0.011763977943\"/&gt;\n    &lt;/inertial&gt;\n    &lt;visual&gt;\n      &lt;geometry&gt;\n  \
+  \      &lt;mesh filename=\"package://cob_description/meshes/drive_wheel/wheel.dae\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;geometry&gt;\n      \
+  \  &lt;mesh filename=\"package://cob_description/meshes/drive_wheel/wheel.stl\"/&gt;\n\
+  \      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;gazebo reference=\"fl_caster_r_wheel_link\"\
+  &gt;\n    &lt;gravity&gt;true&lt;/gravity&gt;\n    &lt;self_collide&gt;false&lt;/self_collide&gt;\n  &lt;/gazebo&gt;\n\
+  \  &lt;transmission name=\"fl_caster_r_wheel_trans\"&gt;\n    &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n\
+  \    &lt;joint name=\"fl_caster_r_wheel_joint\"&gt;\n      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"fl_caster_r_wheel_motor\"&gt;\n      &lt;mechanicalReduction&gt;-79.2380952381&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;gazebo reference=\"fl_caster_rotation_link\"\
+  &gt;\n    &lt;gravity&gt;true&lt;/gravity&gt;\n    &lt;self_collide&gt;false&lt;/self_collide&gt;\n    &lt;material\
+  \ value=\"IPA/Metal\"/&gt;\n  &lt;/gazebo&gt;\n  &lt;joint name=\"b_caster_rotation_joint\"\
+  \ type=\"continuous\"&gt;\n    &lt;origin rpy=\"0 0 0\" xyz=\"-0.24844 0.0 0.0782\"/&gt;\n\
+  \    &lt;parent link=\"base_chassis_link\"/&gt;\n    &lt;child link=\"b_caster_rotation_link\"\
+  /&gt;\n    &lt;axis xyz=\"0 0 1\"/&gt;\n    &lt;safety_controller k_velocity=\"10\"/&gt;\n    &lt;limit\
+  \ effort=\"100\" velocity=\"12.0\"/&gt;\n    &lt;dynamics damping=\"0.0\" friction=\"\
+  0.0\"/&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"b_caster_rotation_link\"&gt;\n    &lt;inertial&gt;\n\
+  \      &lt;origin xyz=\"0 0 0\"/&gt;\n      &lt;mass value=\"5.9\"/&gt;\n      &lt;inertia ixx=\"\
+  0.04\" ixy=\"-0.0007\" ixz=\"0.0\" iyy=\"0.02\" iyz=\"-0.000004\" izz=\"0.05\"/&gt;\n\
+  \    &lt;/inertial&gt;\n    &lt;visual&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://cob_description/meshes/drive_wheel/caster.stl\"\
+  /&gt;\n      &lt;/geometry&gt;\n      &lt;material name=\"IPA/LightGrey\"/&gt;\n    &lt;/visual&gt;\n\
+  \    &lt;collision&gt;\n      &lt;geometry&gt;\n        &lt;box size=\"0.001 0.001 0.001\"/&gt;\n\
+  \      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;transmission name=\"b_caster_rotation_trans\"\
+  &gt;\n    &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n    &lt;joint name=\"\
+  b_caster_rotation_joint\"&gt;\n      &lt;hardwareInterface&gt;hardware_interface/PositionJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"b_caster_rotation_motor\"&gt;\n      &lt;mechanicalReduction&gt;-79.2380952381&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;joint name=\"b_caster_r_wheel_joint\" type=\"\
+  continuous\"&gt;\n    &lt;origin rpy=\"0 0 0\" xyz=\"0 -0.0 0\"/&gt;\n    &lt;parent link=\"\
+  b_caster_rotation_link\"/&gt;\n    &lt;child link=\"b_caster_r_wheel_link\"/&gt;\n    &lt;axis\
+  \ xyz=\"0 1 0\"/&gt;\n    &lt;safety_controller k_velocity=\"10\"/&gt;\n    &lt;limit effort=\"\
+  100\" velocity=\"19.95\"/&gt;\n    &lt;dynamics damping=\"0.0\" friction=\"0.0\"/&gt;\n \
+  \ &lt;/joint&gt;\n  &lt;link name=\"b_caster_r_wheel_link\"&gt;\n    &lt;inertial&gt;\n      &lt;origin\
+  \ xyz=\"0 0 0\"/&gt;\n      &lt;mass value=\"0.44036\"/&gt;\n      &lt;inertia ixx=\"0.012411765597\"\
+  \ ixy=\"-0.000711733678\" ixz=\"0.00050272983\" iyy=\"0.015218160428\" iyz=\"-0.000004273467\"\
+  \ izz=\"0.011763977943\"/&gt;\n    &lt;/inertial&gt;\n    &lt;visual&gt;\n      &lt;geometry&gt;\n  \
+  \      &lt;mesh filename=\"package://cob_description/meshes/drive_wheel/wheel.dae\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;geometry&gt;\n      \
+  \  &lt;mesh filename=\"package://cob_description/meshes/drive_wheel/wheel.stl\"/&gt;\n\
+  \      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;gazebo reference=\"b_caster_r_wheel_link\"\
+  &gt;\n    &lt;gravity&gt;true&lt;/gravity&gt;\n    &lt;self_collide&gt;false&lt;/self_collide&gt;\n  &lt;/gazebo&gt;\n\
+  \  &lt;transmission name=\"b_caster_r_wheel_trans\"&gt;\n    &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n\
+  \    &lt;joint name=\"b_caster_r_wheel_joint\"&gt;\n      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"b_caster_r_wheel_motor\"&gt;\n      &lt;mechanicalReduction&gt;-79.2380952381&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;gazebo reference=\"b_caster_rotation_link\"\
+  &gt;\n    &lt;gravity&gt;true&lt;/gravity&gt;\n    &lt;self_collide&gt;false&lt;/self_collide&gt;\n    &lt;material\
+  \ value=\"IPA/Metal\"/&gt;\n  &lt;/gazebo&gt;\n  &lt;joint name=\"fr_caster_rotation_joint\"\
+  \ type=\"continuous\"&gt;\n    &lt;origin rpy=\"0 0 0\" xyz=\"0.12422 -0.21515 0.0782\"\
+  /&gt;\n    &lt;parent link=\"base_chassis_link\"/&gt;\n    &lt;child link=\"fr_caster_rotation_link\"\
+  /&gt;\n    &lt;axis xyz=\"0 0 1\"/&gt;\n    &lt;safety_controller k_velocity=\"10\"/&gt;\n    &lt;limit\
+  \ effort=\"100\" velocity=\"12.0\"/&gt;\n    &lt;dynamics damping=\"0.0\" friction=\"\
+  0.0\"/&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"fr_caster_rotation_link\"&gt;\n    &lt;inertial&gt;\n\
+  \      &lt;origin xyz=\"0 0 0\"/&gt;\n      &lt;mass value=\"5.9\"/&gt;\n      &lt;inertia ixx=\"\
+  0.04\" ixy=\"-0.0007\" ixz=\"0.0\" iyy=\"0.02\" iyz=\"-0.000004\" izz=\"0.05\"/&gt;\n\
+  \    &lt;/inertial&gt;\n    &lt;visual&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://cob_description/meshes/drive_wheel/caster.stl\"\
+  /&gt;\n      &lt;/geometry&gt;\n      &lt;material name=\"IPA/LightGrey\"/&gt;\n    &lt;/visual&gt;\n\
+  \    &lt;collision&gt;\n      &lt;geometry&gt;\n        &lt;box size=\"0.001 0.001 0.001\"/&gt;\n\
+  \      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;transmission name=\"fr_caster_rotation_trans\"\
+  &gt;\n    &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n    &lt;joint name=\"\
+  fr_caster_rotation_joint\"&gt;\n      &lt;hardwareInterface&gt;hardware_interface/PositionJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"fr_caster_rotation_motor\"&gt;\n      &lt;mechanicalReduction&gt;-79.2380952381&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;joint name=\"fr_caster_r_wheel_joint\" type=\"\
+  continuous\"&gt;\n    &lt;origin rpy=\"0 0 0\" xyz=\"0 -0.0 0\"/&gt;\n    &lt;parent link=\"\
+  fr_caster_rotation_link\"/&gt;\n    &lt;child link=\"fr_caster_r_wheel_link\"/&gt;\n    &lt;axis\
+  \ xyz=\"0 1 0\"/&gt;\n    &lt;safety_controller k_velocity=\"10\"/&gt;\n    &lt;limit effort=\"\
+  100\" velocity=\"19.95\"/&gt;\n    &lt;dynamics damping=\"0.0\" friction=\"0.0\"/&gt;\n \
+  \ &lt;/joint&gt;\n  &lt;link name=\"fr_caster_r_wheel_link\"&gt;\n    &lt;inertial&gt;\n      &lt;origin\
+  \ xyz=\"0 0 0\"/&gt;\n      &lt;mass value=\"0.44036\"/&gt;\n      &lt;inertia ixx=\"0.012411765597\"\
+  \ ixy=\"-0.000711733678\" ixz=\"0.00050272983\" iyy=\"0.015218160428\" iyz=\"-0.000004273467\"\
+  \ izz=\"0.011763977943\"/&gt;\n    &lt;/inertial&gt;\n    &lt;visual&gt;\n      &lt;geometry&gt;\n  \
+  \      &lt;mesh filename=\"package://cob_description/meshes/drive_wheel/wheel.dae\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;geometry&gt;\n      \
+  \  &lt;mesh filename=\"package://cob_description/meshes/drive_wheel/wheel.stl\"/&gt;\n\
+  \      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;gazebo reference=\"fr_caster_r_wheel_link\"\
+  &gt;\n    &lt;gravity&gt;true&lt;/gravity&gt;\n    &lt;self_collide&gt;false&lt;/self_collide&gt;\n  &lt;/gazebo&gt;\n\
+  \  &lt;transmission name=\"fr_caster_r_wheel_trans\"&gt;\n    &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n\
+  \    &lt;joint name=\"fr_caster_r_wheel_joint\"&gt;\n      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"fr_caster_r_wheel_motor\"&gt;\n      &lt;mechanicalReduction&gt;-79.2380952381&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;gazebo reference=\"fr_caster_rotation_link\"\
+  &gt;\n    &lt;gravity&gt;true&lt;/gravity&gt;\n    &lt;self_collide&gt;false&lt;/self_collide&gt;\n    &lt;material\
+  \ value=\"IPA/Metal\"/&gt;\n  &lt;/gazebo&gt;\n  &lt;gazebo reference=\"base_link\"&gt;\n    &lt;gravity&gt;true&lt;/gravity&gt;\n\
+  \    &lt;self_collide&gt;false&lt;/self_collide&gt;\n    &lt;sensor name=\"base_contact_sensor\"\
+  \ type=\"contact\"&gt;\n      &lt;always_on&gt;true&lt;/always_on&gt;\n      &lt;update_rate&gt;100.0&lt;/update_rate&gt;\n\
+  \      &lt;contact&gt;\n        &lt;collision&gt;base_link_collision&lt;/collision&gt;\n        &lt;topic&gt;base_bumper&lt;/topic&gt;\n\
+  \      &lt;/contact&gt;\n      &lt;plugin filename=\"libgazebo_ros_bumper.so\" name=\"base_gazebo_ros_bumper_controller\"\
+  &gt;\n        &lt;frameName&gt;world&lt;/frameName&gt;\n        &lt;bumperTopicName&gt;base_bumper&lt;/bumperTopicName&gt;\n\
+  \      &lt;/plugin&gt;\n    &lt;/sensor&gt;\n  &lt;/gazebo&gt;\n  &lt;gazebo&gt;\n    &lt;plugin filename=\"\
+  libgazebo_ros_p3d.so\" name=\"p3d_base_controller\"&gt;\n      &lt;alwaysOn&gt;true&lt;/alwaysOn&gt;\n\
+  \      &lt;updateRate&gt;100.0&lt;/updateRate&gt;\n      &lt;bodyName&gt;base_link&lt;/bodyName&gt;\n  \
+  \    &lt;topicName&gt;base_pose_ground_truth&lt;/topicName&gt;\n      &lt;frameName&gt;map&lt;/frameName&gt;\n\
+  \      &lt;xyzOffsets&gt;25.7 25.7 0&lt;/xyzOffsets&gt;\n      &lt;!-- initialize odometry for\
+  \ fake localization--&gt;\n      &lt;rpyOffsets&gt;0 0 0&lt;/rpyOffsets&gt;\n      &lt;gaussianNoise&gt;0.01&lt;/gaussianNoise&gt;\n\
+  \    &lt;/plugin&gt;\n    &lt;canonicalBody&gt;base_footprint&lt;/canonicalBody&gt;\n  &lt;/gazebo&gt;\n\
+  \  &lt;!-- ros_control plugin --&gt;\n  &lt;gazebo&gt;\n    &lt;plugin filename=\"libhwi_switch_gazebo_ros_control.so\"\
+  \ name=\"ros_control\"&gt;\n      &lt;robotNamespace&gt;base&lt;/robotNamespace&gt;\n      &lt;filterJointsParam&gt;joint_names&lt;/filterJointsParam&gt;\n\
+  \    &lt;/plugin&gt;\n  &lt;/gazebo&gt;\n  &lt;joint name=\"base_laser_front_joint\" type=\"fixed\"\
+  &gt;\n    &lt;origin rpy=\"0.0 0.0 0.0\" xyz=\"0.244 0.0 0.20858\"/&gt;\n    &lt;parent link=\"\
+  base_link\"/&gt;\n    &lt;child link=\"base_laser_front_link\"/&gt;\n  &lt;/joint&gt;\n  &lt;link\
+  \ name=\"base_laser_front_link\" type=\"laser\"&gt;\n    &lt;inertial&gt;\n      &lt;mass value=\"\
+  1.2\"/&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;inertia ixx=\"0.0029999988\"\
+  \ ixy=\"0.0\" ixz=\"0.0\" iyy=\"0.0029999988\" iyz=\"0.0\" izz=\"0.0015\"/&gt;\n  \
+  \  &lt;/inertial&gt;\n    &lt;visual&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n    \
+  \  &lt;geometry&gt;\n        &lt;mesh filename=\"package://cob_description/meshes/sensors/sick_s300_laser.dae\"\
+  /&gt;\n        &lt;!--box size=\"0.001 0.001 0.001\" /--&gt;\n      &lt;/geometry&gt;\n      &lt;material\
+  \ name=\"IPA/LightGrey\"/&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"\
+  0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://cob_description/meshes/sensors/sick_s300_laser_collision.stl\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;gazebo reference=\"base_laser_front_link\"\
+  &gt;\n    &lt;sensor name=\"base_laser_front\" type=\"ray\"&gt;\n      &lt;always_on&gt;true&lt;/always_on&gt;\n\
+  \      &lt;update_rate&gt;12.0&lt;/update_rate&gt;\n      &lt;pose&gt;0 0 0 0 0 0&lt;/pose&gt;\n      &lt;visualize&gt;false&lt;/visualize&gt;\n\
+  \      &lt;ray&gt;\n        &lt;scan&gt;\n          &lt;horizontal&gt;\n            &lt;samples&gt;541&lt;/samples&gt;\n\
+  \            &lt;resolution&gt;1.0&lt;/resolution&gt;\n            &lt;min_angle&gt;-2.3562&lt;/min_angle&gt;\n\
+  \            &lt;max_angle&gt;2.3562&lt;/max_angle&gt;\n          &lt;/horizontal&gt;\n        &lt;/scan&gt;\n\
+  \        &lt;range&gt;\n          &lt;min&gt;0.05&lt;/min&gt;\n          &lt;max&gt;29.5&lt;/max&gt;\n       \
+  \   &lt;resolution&gt;0.03&lt;/resolution&gt;\n        &lt;/range&gt;\n        &lt;noise&gt;\n         \
+  \ &lt;type&gt;gaussian&lt;/type&gt;\n          &lt;mean&gt;0.0&lt;/mean&gt;\n          &lt;stddev&gt;0.02&lt;/stddev&gt;\n\
+  \        &lt;/noise&gt;\n      &lt;/ray&gt;\n      &lt;plugin filename=\"libgazebo_ros_laser.so\"\
+  \ name=\"gazebo_ros_base_laser_front_controller\"&gt;\n        &lt;topicName&gt;base_laser_front/scan_raw&lt;/topicName&gt;\n\
+  \        &lt;frameName&gt;base_laser_front_link&lt;/frameName&gt;\n      &lt;/plugin&gt;\n    &lt;/sensor&gt;\n\
+  \  &lt;/gazebo&gt;\n  &lt;joint name=\"base_laser_left_joint\" type=\"fixed\"&gt;\n    &lt;origin\
+  \ rpy=\"0.0 0.0 2.094\" xyz=\"-0.122 0.21131 0.20858\"/&gt;\n    &lt;parent link=\"base_link\"\
+  /&gt;\n    &lt;child link=\"base_laser_left_link\"/&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"base_laser_left_link\"\
+  \ type=\"laser\"&gt;\n    &lt;inertial&gt;\n      &lt;mass value=\"1.2\"/&gt;\n      &lt;origin rpy=\"\
+  0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;inertia ixx=\"0.0029999988\" ixy=\"0.0\" ixz=\"\
+  0.0\" iyy=\"0.0029999988\" iyz=\"0.0\" izz=\"0.0015\"/&gt;\n    &lt;/inertial&gt;\n    &lt;visual&gt;\n\
+  \      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"\
+  package://cob_description/meshes/sensors/sick_s300_laser.dae\"/&gt;\n        &lt;!--box\
+  \ size=\"0.001 0.001 0.001\" /--&gt;\n      &lt;/geometry&gt;\n      &lt;material name=\"IPA/LightGrey\"\
+  /&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n\
+  \      &lt;geometry&gt;\n        &lt;mesh filename=\"package://cob_description/meshes/sensors/sick_s300_laser_collision.stl\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;gazebo reference=\"base_laser_left_link\"\
+  &gt;\n    &lt;sensor name=\"base_laser_left\" type=\"ray\"&gt;\n      &lt;always_on&gt;true&lt;/always_on&gt;\n\
+  \      &lt;update_rate&gt;12.0&lt;/update_rate&gt;\n      &lt;pose&gt;0 0 0 0 0 0&lt;/pose&gt;\n      &lt;visualize&gt;false&lt;/visualize&gt;\n\
+  \      &lt;ray&gt;\n        &lt;scan&gt;\n          &lt;horizontal&gt;\n            &lt;samples&gt;541&lt;/samples&gt;\n\
+  \            &lt;resolution&gt;1.0&lt;/resolution&gt;\n            &lt;min_angle&gt;-2.3562&lt;/min_angle&gt;\n\
+  \            &lt;max_angle&gt;2.3562&lt;/max_angle&gt;\n          &lt;/horizontal&gt;\n        &lt;/scan&gt;\n\
+  \        &lt;range&gt;\n          &lt;min&gt;0.05&lt;/min&gt;\n          &lt;max&gt;29.5&lt;/max&gt;\n       \
+  \   &lt;resolution&gt;0.03&lt;/resolution&gt;\n        &lt;/range&gt;\n        &lt;noise&gt;\n         \
+  \ &lt;type&gt;gaussian&lt;/type&gt;\n          &lt;mean&gt;0.0&lt;/mean&gt;\n          &lt;stddev&gt;0.02&lt;/stddev&gt;\n\
+  \        &lt;/noise&gt;\n      &lt;/ray&gt;\n      &lt;plugin filename=\"libgazebo_ros_laser.so\"\
+  \ name=\"gazebo_ros_base_laser_left_controller\"&gt;\n        &lt;topicName&gt;base_laser_left/scan_raw&lt;/topicName&gt;\n\
+  \        &lt;frameName&gt;base_laser_left_link&lt;/frameName&gt;\n      &lt;/plugin&gt;\n    &lt;/sensor&gt;\n\
+  \  &lt;/gazebo&gt;\n  &lt;joint name=\"base_laser_right_joint\" type=\"fixed\"&gt;\n    &lt;origin\
+  \ rpy=\"0.0 0.0 -2.094\" xyz=\"-0.122 -0.21131 0.20858\"/&gt;\n    &lt;parent link=\"\
+  base_link\"/&gt;\n    &lt;child link=\"base_laser_right_link\"/&gt;\n  &lt;/joint&gt;\n  &lt;link\
+  \ name=\"base_laser_right_link\" type=\"laser\"&gt;\n    &lt;inertial&gt;\n      &lt;mass value=\"\
+  1.2\"/&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;inertia ixx=\"0.0029999988\"\
+  \ ixy=\"0.0\" ixz=\"0.0\" iyy=\"0.0029999988\" iyz=\"0.0\" izz=\"0.0015\"/&gt;\n  \
+  \  &lt;/inertial&gt;\n    &lt;visual&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n    \
+  \  &lt;geometry&gt;\n        &lt;mesh filename=\"package://cob_description/meshes/sensors/sick_s300_laser.dae\"\
+  /&gt;\n        &lt;!--box size=\"0.001 0.001 0.001\" /--&gt;\n      &lt;/geometry&gt;\n      &lt;material\
+  \ name=\"IPA/LightGrey\"/&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"\
+  0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://cob_description/meshes/sensors/sick_s300_laser_collision.stl\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;gazebo reference=\"base_laser_right_link\"\
+  &gt;\n    &lt;sensor name=\"base_laser_right\" type=\"ray\"&gt;\n      &lt;always_on&gt;true&lt;/always_on&gt;\n\
+  \      &lt;update_rate&gt;12.0&lt;/update_rate&gt;\n      &lt;pose&gt;0 0 0 0 0 0&lt;/pose&gt;\n      &lt;visualize&gt;false&lt;/visualize&gt;\n\
+  \      &lt;ray&gt;\n        &lt;scan&gt;\n          &lt;horizontal&gt;\n            &lt;samples&gt;541&lt;/samples&gt;\n\
+  \            &lt;resolution&gt;1.0&lt;/resolution&gt;\n            &lt;min_angle&gt;-2.3562&lt;/min_angle&gt;\n\
+  \            &lt;max_angle&gt;2.3562&lt;/max_angle&gt;\n          &lt;/horizontal&gt;\n        &lt;/scan&gt;\n\
+  \        &lt;range&gt;\n          &lt;min&gt;0.05&lt;/min&gt;\n          &lt;max&gt;29.5&lt;/max&gt;\n       \
+  \   &lt;resolution&gt;0.03&lt;/resolution&gt;\n        &lt;/range&gt;\n        &lt;noise&gt;\n         \
+  \ &lt;type&gt;gaussian&lt;/type&gt;\n          &lt;mean&gt;0.0&lt;/mean&gt;\n          &lt;stddev&gt;0.02&lt;/stddev&gt;\n\
+  \        &lt;/noise&gt;\n      &lt;/ray&gt;\n      &lt;plugin filename=\"libgazebo_ros_laser.so\"\
+  \ name=\"gazebo_ros_base_laser_right_controller\"&gt;\n        &lt;topicName&gt;base_laser_right/scan_raw&lt;/topicName&gt;\n\
+  \        &lt;frameName&gt;base_laser_right_link&lt;/frameName&gt;\n      &lt;/plugin&gt;\n    &lt;/sensor&gt;\n\
+  \  &lt;/gazebo&gt;\n  &lt;!-- multi-chain arm --&gt;\n  &lt;!--xacro:torso name=\"torso\" parent=\"\
+  base_link\" dof1=\"${True}\" dof2=\"${True}\" dof3=\"${True}\"&gt;\n    &lt;origin xyz=\"\
+  ${torso_x} ${torso_y} ${torso_z}\" rpy=\"${torso_roll} ${torso_pitch} ${torso_yaw}\"\
+  \ /&gt;\n  &lt;/xacro:torso&gt;\n  &lt;xacro:shoulder name=\"shoulder\" parent=\"torso_3_link\"\
+  &gt;\n    &lt;origin xyz=\"${shoulder_x} ${shoulder_y} ${shoulder_z}\" rpy=\"${shoulder_roll}\
+  \ ${shoulder_pitch} ${shoulder_yaw}\" /&gt;\n  &lt;/xacro:shoulder&gt;\n  &lt;xacro:wrist name=\"\
+  wrist\" parent=\"shoulder_2_link\"&gt;\n    &lt;origin xyz=\"${wrist_x} ${wrist_y} ${wrist_z}\"\
+  \ rpy=\"${wrist_roll} ${wrist_pitch} ${wrist_yaw}\" /&gt;\n  &lt;/xacro:wrist--&gt;\n  &lt;joint\
+  \ name=\"torso_base_joint\" type=\"fixed\"&gt;\n    &lt;origin rpy=\"0.0 0.0 0.0\" xyz=\"\
+  0.0 0.0 0.26411\"/&gt;\n    &lt;parent link=\"base_link\"/&gt;\n    &lt;child link=\"torso_base_link\"\
+  /&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"torso_base_link\"&gt;\n    &lt;inertial&gt;\n      &lt;mass value=\"\
+  0.01\"/&gt;\n      &lt;origin xyz=\"0 0 0\"/&gt;\n      &lt;inertia ixx=\"0.001\" ixy=\"0.0\"\
+  \ ixz=\"0.0\" iyy=\"0.001\" iyz=\"0.0\" izz=\"0.001\"/&gt;\n    &lt;/inertial&gt;\n    &lt;!--\n\
+  \       &lt;xacro:cylinder_inertial radius=\"0.300\" length=\"0.046\" mass=\"5.0\"\
+  &gt;\n        &lt;origin xyz=\"0.03 0.08 0.01\" rpy=\"0 0 0\" /&gt;\n      &lt;/xacro:cylinder_inertial&gt;\n\
+  --&gt;\n    &lt;visual&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n\
+  \        &lt;box size=\"0.001 0.001 0.001\"/&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n \
+  \   &lt;collision&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n\
+  \        &lt;box size=\"0.001 0.001 0.001\"/&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n\
+  \  &lt;/link&gt;\n  &lt;joint name=\"torso_1_joint\" type=\"revolute\"&gt;\n    &lt;origin rpy=\"\
+  0 0 0\" xyz=\"0 0 0.086\"/&gt;\n    &lt;parent link=\"torso_base_link\"/&gt;\n    &lt;child\
+  \ link=\"torso_1_link\"/&gt;\n    &lt;axis xyz=\"0 0 1\"/&gt;\n    &lt;limit effort=\"100\"\
+  \ lower=\"-4.71238898038\" upper=\"4.71238898038\" velocity=\"0.8\"/&gt;\n  &lt;/joint&gt;\n\
+  \  &lt;link name=\"torso_1_link\"&gt;\n    &lt;inertial&gt;\n      &lt;mass value=\"0.01\"/&gt;\n\
+  \      &lt;origin xyz=\"0 0 0\"/&gt;\n      &lt;inertia ixx=\"0.001\" ixy=\"0.0\" ixz=\"\
+  0.0\" iyy=\"0.001\" iyz=\"0.0\" izz=\"0.001\"/&gt;\n    &lt;/inertial&gt;\n    &lt;!--\n   \
+  \   &lt;xacro:hollow_spherical_cap_inertial r=\"0.295\" h=\"0.075\" t=\"0.010\" mass=\"\
+  6\"&gt;\n        &lt;origin xyz=\"0 0 ${0.075/2}\" rpy=\"0 0 0\"/&gt;\n      &lt;/xacro:hollow_spherical_cap_inertial&gt;\n\
+  --&gt;\n    &lt;visual&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;material\
+  \ name=\"IPA/LightGrey\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://mojin_description/meshes/mrl_torso/LUKA_PT1_Torso_Pan.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"0 0 0\"\
+  \ xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://mojin_description/meshes/mrl_torso/LUKA_PT1_Torso_Pan.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;joint name=\"torso_2_joint\"\
+  \ type=\"revolute\"&gt;\n    &lt;origin rpy=\"0.5236 0 0\" xyz=\"0 0.175 0.07729\"/&gt;\n\
+  \    &lt;parent link=\"torso_1_link\"/&gt;\n    &lt;child link=\"torso_2_link\"/&gt;\n    &lt;axis\
+  \ xyz=\"0 0 1\"/&gt;\n    &lt;limit effort=\"100\" lower=\"-4.71238898038\" upper=\"4.71238898038\"\
+  \ velocity=\"0.8\"/&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"torso_2_link\"&gt;\n    &lt;inertial&gt;\n\
+  \      &lt;mass value=\"0.01\"/&gt;\n      &lt;origin xyz=\"0 0 0\"/&gt;\n      &lt;inertia ixx=\"\
+  0.001\" ixy=\"0.0\" ixz=\"0.0\" iyy=\"0.001\" iyz=\"0.0\" izz=\"0.001\"/&gt;\n    &lt;/inertial&gt;\n\
+  \    &lt;!--\n      &lt;xacro:spherical_cap_inertial r=\"0.295\" h=\"0.075\" mass=\"19.5\"\
+  &gt;\n        &lt;origin xyz=\"0.034 0.102 0.092\" rpy=\"0.5236 0 0\"/&gt;\n      &lt;/xacro:spherical_cap_inertial&gt;\n\
+  --&gt;\n    &lt;visual&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;material\
+  \ name=\"IPA/Metall\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://mojin_description/meshes/mrl_torso/LUKA_PT1_Torso_Sphere.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"0 0 0\"\
+  \ xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://mojin_description/meshes/mrl_torso/LUKA_PT1_Torso_Sphere.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;joint name=\"torso_3_joint\"\
+  \ type=\"revolute\"&gt;\n    &lt;origin rpy=\"-0.5236 0 0\" xyz=\"0 -0.09695 0.18208\"\
+  /&gt;\n    &lt;parent link=\"torso_2_link\"/&gt;\n    &lt;child link=\"torso_3_link\"/&gt;\n  \
+  \  &lt;axis xyz=\"0 0 1\"/&gt;\n    &lt;limit effort=\"100\" lower=\"-4.71238898038\" upper=\"\
+  4.71238898038\" velocity=\"0.8\"/&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"torso_3_link\"&gt;\n\
+  \    &lt;inertial&gt;\n      &lt;mass value=\"0.01\"/&gt;\n      &lt;origin xyz=\"0 0 0\"/&gt;\n \
+  \     &lt;inertia ixx=\"0.001\" ixy=\"0.0\" ixz=\"0.0\" iyy=\"0.001\" iyz=\"0.0\" izz=\"\
+  0.001\"/&gt;\n    &lt;/inertial&gt;\n    &lt;!--\n      &lt;xacro:cylinder_inertial radius=\"0.250\"\
+  \ length=\"0.610\" mass=\"23.8\"&gt;\n        &lt;origin xyz=\"-0.028 0.005 0.233\" rpy=\"\
+  0 0 0\" /&gt;\n      &lt;/xacro:cylinder_inertial&gt;\n--&gt;\n    &lt;visual&gt;\n      &lt;origin rpy=\"\
+  0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;material name=\"IPA/DarkGrey\"/&gt;\n      &lt;geometry&gt;\n\
+  \        &lt;mesh filename=\"package://mojin_description/meshes/mrl_shoulder/LUKA_PT1_Shoulder_S1.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"0 0 0\"\
+  \ xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://mojin_description/meshes/mrl_shoulder/LUKA_PT1_Shoulder_S1.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;joint name=\"torso_center_joint\"\
+  \ type=\"fixed\"&gt;\n    &lt;origin rpy=\"0 0 0\" xyz=\"0.0 0.0 0.1893\"/&gt;\n    &lt;parent\
+  \ link=\"torso_3_link\"/&gt;\n    &lt;child link=\"torso_center_link\"/&gt;\n  &lt;/joint&gt;\n\
+  \  &lt;link name=\"torso_center_link\"&gt;\n    &lt;inertial&gt;\n      &lt;mass value=\"0.01\"\
+  /&gt;\n      &lt;origin xyz=\"0 0 0\"/&gt;\n      &lt;inertia ixx=\"0.001\" ixy=\"0.0\" ixz=\"\
+  0.0\" iyy=\"0.001\" iyz=\"0.0\" izz=\"0.001\"/&gt;\n    &lt;/inertial&gt;\n    &lt;visual&gt;\n\
+  \      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;box size=\"\
+  0.001 0.001 0.001\"/&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n     \
+  \ &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;box size=\"\
+  0.001 0.001 0.001\"/&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;transmission\
+  \ name=\"torso_1_trans\"&gt;\n    &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n\
+  \    &lt;joint name=\"torso_1_joint\"&gt;\n      &lt;hardwareInterface&gt;hardware_interface/PositionJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;!--hardwareInterface&gt;hardware_interface/EffortJointInterface&lt;/hardwareInterface--&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"torso_1_motor\"&gt;\n      &lt;mechanicalReduction&gt;1&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;transmission name=\"torso_2_trans\"&gt;\n \
+  \   &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n    &lt;joint name=\"torso_2_joint\"\
+  &gt;\n      &lt;hardwareInterface&gt;hardware_interface/PositionJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;!--hardwareInterface&gt;hardware_interface/EffortJointInterface&lt;/hardwareInterface--&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"torso_2_motor\"&gt;\n      &lt;mechanicalReduction&gt;1&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;transmission name=\"torso_3_trans\"&gt;\n \
+  \   &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n    &lt;joint name=\"torso_3_joint\"\
+  &gt;\n      &lt;hardwareInterface&gt;hardware_interface/PositionJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;!--hardwareInterface&gt;hardware_interface/EffortJointInterface&lt;/hardwareInterface--&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"torso_3_motor\"&gt;\n      &lt;mechanicalReduction&gt;1&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;joint name=\"shoulder_1_joint\" type=\"\
+  revolute\"&gt;\n    &lt;origin rpy=\"0.0 -1.57079632679 0.0\" xyz=\"0.1959 0.0 0.91\"\
+  /&gt;\n    &lt;parent link=\"torso_3_link\"/&gt;\n    &lt;child link=\"shoulder_1_link\"/&gt;\n\
+  \    &lt;axis xyz=\"0 0 1\"/&gt;\n    &lt;limit effort=\"100\" lower=\"-4.71238898038\" upper=\"\
+  4.71238898038\" velocity=\"0.7\"/&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"shoulder_1_link\"\
+  &gt;\n    &lt;inertial&gt;\n      &lt;mass value=\"0.01\"/&gt;\n      &lt;origin xyz=\"0 0 0\"/&gt;\n\
+  \      &lt;inertia ixx=\"0.001\" ixy=\"0.0\" ixz=\"0.0\" iyy=\"0.001\" iyz=\"0.0\"\
+  \ izz=\"0.001\"/&gt;\n    &lt;/inertial&gt;\n    &lt;visual&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"\
+  0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;box size=\"0.001 0.001 0.001\"/&gt;\n      &lt;/geometry&gt;\n\
+  \    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n \
+  \     &lt;geometry&gt;\n        &lt;box size=\"0.001 0.001 0.001\"/&gt;\n      &lt;/geometry&gt;\n\
+  \    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;joint name=\"shoulder_2_joint\" type=\"prismatic\"\
+  &gt;\n    &lt;origin rpy=\"0 1.57079632679 0\" xyz=\"0 0 0\"/&gt;\n    &lt;parent link=\"shoulder_1_link\"\
+  /&gt;\n    &lt;child link=\"shoulder_2_link\"/&gt;\n    &lt;axis xyz=\"0 0 1\"/&gt;\n    &lt;limit\
+  \ effort=\"100\" lower=\"0.0\" upper=\"0.83\" velocity=\"0.13\"/&gt;\n  &lt;/joint&gt;\n\
+  \  &lt;link name=\"shoulder_2_link\"&gt;\n    &lt;inertial&gt;\n      &lt;mass value=\"0.01\"/&gt;\n\
+  \      &lt;origin xyz=\"0 0 0\"/&gt;\n      &lt;inertia ixx=\"0.001\" ixy=\"0.0\" ixz=\"\
+  0.0\" iyy=\"0.001\" iyz=\"0.0\" izz=\"0.001\"/&gt;\n    &lt;/inertial&gt;\n    &lt;visual&gt;\n\
+  \      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;material name=\"IPA/YellowRubber\"\
+  /&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://mojin_description/meshes/mrl_shoulder/LUKA_PT1_Shoulder_S2_Teleskop_T1.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"0 0 0\"\
+  \ xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://mojin_description/meshes/mrl_shoulder/LUKA_PT1_Shoulder_S2_Teleskop_T1.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;joint name=\"shoulder_2_mimic_joint\"\
+  \ type=\"prismatic\"&gt;\n    &lt;origin rpy=\"0 1.57079632679 0\" xyz=\"0 0 0\"/&gt;\n \
+  \   &lt;parent link=\"shoulder_1_link\"/&gt;\n    &lt;child link=\"shoulder_2_mimic_link\"\
+  /&gt;\n    &lt;axis xyz=\"0 0 1\"/&gt;\n    &lt;limit effort=\"100\" lower=\"0.0\" upper=\"\
+  0.83\" velocity=\"0.13\"/&gt;\n    &lt;mimic joint=\"shoulder_2_joint\" multiplier=\"\
+  0.5\" offset=\"0\"/&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"shoulder_2_mimic_link\"&gt;\n    &lt;inertial&gt;\n\
+  \      &lt;mass value=\"0.01\"/&gt;\n      &lt;origin xyz=\"0 0 0\"/&gt;\n      &lt;inertia ixx=\"\
+  0.001\" ixy=\"0.0\" ixz=\"0.0\" iyy=\"0.001\" iyz=\"0.0\" izz=\"0.001\"/&gt;\n    &lt;/inertial&gt;\n\
+  \    &lt;visual&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;material name=\"\
+  IPA/YellowRubber\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://mojin_description/meshes/mrl_shoulder/LUKA_PT1_Shoulder_S2_Teleskop_T2.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"0 0 0\"\
+  \ xyz=\"0 0 0\"/&gt;\n      &lt;material name=\"IPA/YellowRubber\"/&gt;\n      &lt;geometry&gt;\n\
+  \        &lt;mesh filename=\"package://mojin_description/meshes/mrl_shoulder/LUKA_PT1_Shoulder_S2_Teleskop_T2.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;transmission name=\"shoulder_1_trans\"\
+  &gt;\n    &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n    &lt;joint name=\"\
+  shoulder_1_joint\"&gt;\n      &lt;hardwareInterface&gt;hardware_interface/PositionJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;!--hardwareInterface&gt;hardware_interface/EffortJointInterface&lt;/hardwareInterface--&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"shoulder_1_motor\"&gt;\n      &lt;mechanicalReduction&gt;1&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;transmission name=\"shoulder_2_trans\"&gt;\n\
+  \    &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n    &lt;joint name=\"\
+  shoulder_2_joint\"&gt;\n      &lt;hardwareInterface&gt;hardware_interface/PositionJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;!--hardwareInterface&gt;hardware_interface/EffortJointInterface&lt;/hardwareInterface--&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"shoulder_2_motor\"&gt;\n      &lt;mechanicalReduction&gt;1&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;joint name=\"wrist_1_joint\" type=\"revolute\"\
+  &gt;\n    &lt;origin rpy=\"0.0 -1.57079632679 0.0\" xyz=\"-0.103 0.0 0.145\"/&gt;\n    &lt;parent\
+  \ link=\"shoulder_2_link\"/&gt;\n    &lt;child link=\"wrist_1_link\"/&gt;\n    &lt;axis xyz=\"\
+  0 0 1\"/&gt;\n    &lt;limit effort=\"100\" lower=\"-4.71238898038\" upper=\"0.5\" velocity=\"\
+  0.087\"/&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"wrist_1_link\"&gt;\n    &lt;inertial&gt;\n      &lt;mass\
+  \ value=\"0.01\"/&gt;\n      &lt;origin xyz=\"0 0 0\"/&gt;\n      &lt;inertia ixx=\"0.001\"\
+  \ ixy=\"0.0\" ixz=\"0.0\" iyy=\"0.001\" iyz=\"0.0\" izz=\"0.001\"/&gt;\n    &lt;/inertial&gt;\n\
+  \    &lt;visual&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;material name=\"\
+  IPA/DarkGrey\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://mojin_description/meshes/mrl_wrist/LUKA_PT1_Wrist_W2.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"0 0 0\"\
+  \ xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://mojin_description/meshes/mrl_wrist/LUKA_PT1_Wrist_W2.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;joint name=\"wrist_2_joint\"\
+  \ type=\"revolute\"&gt;\n    &lt;origin rpy=\"0 1.57079632679 0\" xyz=\"-0.0455 0.0 0.038\"\
+  /&gt;\n    &lt;parent link=\"wrist_1_link\"/&gt;\n    &lt;child link=\"wrist_2_link\"/&gt;\n  \
+  \  &lt;axis xyz=\"0 0 1\"/&gt;\n    &lt;limit effort=\"100\" lower=\"-1.1\" upper=\"0.7\"\
+  \ velocity=\"0.5\"/&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"wrist_2_link\"&gt;\n    &lt;inertial&gt;\n\
+  \      &lt;mass value=\"0.01\"/&gt;\n      &lt;origin xyz=\"0 0 0\"/&gt;\n      &lt;inertia ixx=\"\
+  0.001\" ixy=\"0.0\" ixz=\"0.0\" iyy=\"0.001\" iyz=\"0.0\" izz=\"0.001\"/&gt;\n    &lt;/inertial&gt;\n\
+  \    &lt;visual&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;material name=\"\
+  IPA/DarkGrey\"/&gt;\n      &lt;geometry&gt;\n        &lt;box size=\"0.001 0.001 0.001\"/&gt;\n\
+  \      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"0 0 0\"\
+  \ xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;box size=\"0.001 0.001 0.001\"/&gt;\n\
+  \      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;joint name=\"wrist_mount_joint\"\
+  \ type=\"fixed\"&gt;\n    &lt;origin rpy=\"3.14159265359 0 0\" xyz=\"0 0 0\"/&gt;\n    &lt;parent\
+  \ link=\"wrist_2_link\"/&gt;\n    &lt;child link=\"wrist_mount_link\"/&gt;\n  &lt;/joint&gt;\n\
+  \  &lt;link name=\"wrist_mount_link\"/&gt;\n  &lt;transmission name=\"wrist_1_trans\"&gt;\n\
+  \    &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n    &lt;joint name=\"\
+  wrist_1_joint\"&gt;\n      &lt;hardwareInterface&gt;hardware_interface/PositionJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;!--hardwareInterface&gt;hardware_interface/EffortJointInterface&lt;/hardwareInterface--&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"wrist_1_motor\"&gt;\n      &lt;mechanicalReduction&gt;1&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;transmission name=\"wrist_2_trans\"&gt;\n \
+  \   &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n    &lt;joint name=\"wrist_2_joint\"\
+  &gt;\n      &lt;hardwareInterface&gt;hardware_interface/PositionJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;!--hardwareInterface&gt;hardware_interface/EffortJointInterface&lt;/hardwareInterface--&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"wrist_2_motor\"&gt;\n      &lt;mechanicalReduction&gt;1&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;gazebo&gt;\n    &lt;plugin filename=\"libhwi_switch_gazebo_ros_control.so\"\
+  \ name=\"ros_control\"&gt;\n      &lt;robotNamespace&gt;arm&lt;/robotNamespace&gt;\n      &lt;filterJointsParam&gt;joint_names&lt;/filterJointsParam&gt;\n\
+  \    &lt;/plugin&gt;\n  &lt;/gazebo&gt;\n  &lt;joint name=\"gripper_mount_joint\" type=\"fixed\"\
+  &gt;\n    &lt;origin rpy=\"0.0 -3.14159265359 0.0\" xyz=\"0.0 0.0 0.0\"/&gt;\n    &lt;parent\
+  \ link=\"wrist_mount_link\"/&gt;\n    &lt;child link=\"gripper_mount_link\"/&gt;\n  &lt;/joint&gt;\n\
+  \  &lt;link name=\"gripper_mount_link\"&gt;\n    &lt;inertial&gt;\n      &lt;mass value=\"0.01\"\
+  /&gt;\n      &lt;origin xyz=\"0 0 0\"/&gt;\n      &lt;inertia ixx=\"0.001\" ixy=\"0.0\" ixz=\"\
+  0.0\" iyy=\"0.001\" iyz=\"0.0\" izz=\"0.001\"/&gt;\n    &lt;/inertial&gt;\n    &lt;visual&gt;\n\
+  \      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;material name=\"IPA/YellowRubber\"\
+  /&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://mojin_description/meshes/mrl_gripper/LUKA_PT1_Gripper_mount.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"0 0 0\"\
+  \ xyz=\"0 0 0\"/&gt;\n      &lt;material name=\"IPA/YellowRubber\"/&gt;\n      &lt;geometry&gt;\n\
+  \        &lt;mesh filename=\"package://mojin_description/meshes/mrl_gripper/LUKA_PT1_Gripper_mount.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;joint name=\"gripper_plate_joint\"\
+  \ type=\"revolute\"&gt;\n    &lt;origin rpy=\"-1.57079632679 0 0\" xyz=\"0.057 0 -0.107\"\
+  /&gt;\n    &lt;parent link=\"gripper_mount_link\"/&gt;\n    &lt;child link=\"gripper_plate_link\"\
+  /&gt;\n    &lt;axis xyz=\"0 0 1\"/&gt;\n    &lt;limit effort=\"100\" lower=\"0.0\" upper=\"\
+  0.401425727959\" velocity=\"0.5\"/&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"gripper_plate_link\"\
+  &gt;\n    &lt;inertial&gt;\n      &lt;mass value=\"0.01\"/&gt;\n      &lt;origin xyz=\"0 0 0\"/&gt;\n\
+  \      &lt;inertia ixx=\"0.001\" ixy=\"0.0\" ixz=\"0.0\" iyy=\"0.001\" iyz=\"0.0\"\
+  \ izz=\"0.001\"/&gt;\n    &lt;/inertial&gt;\n    &lt;visual&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"\
+  0 0 0\"/&gt;\n      &lt;material name=\"IPA/YellowRubber\"/&gt;\n      &lt;geometry&gt;\n     \
+  \   &lt;mesh filename=\"package://mojin_description/meshes/mrl_gripper/LUKA_PT1_Gripper_plate.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"0 0 0\"\
+  \ xyz=\"0 0 0\"/&gt;\n      &lt;material name=\"IPA/YellowRubber\"/&gt;\n      &lt;geometry&gt;\n\
+  \        &lt;mesh filename=\"package://mojin_description/meshes/mrl_gripper/LUKA_PT1_Gripper_plate.STL\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;joint name=\"gripper_ee_joint\"\
+  \ type=\"fixed\"&gt;\n    &lt;origin rpy=\"1.57079632679 0 0\" xyz=\"0.031 0.1498 0.0\"\
+  /&gt;\n    &lt;parent link=\"gripper_plate_link\"/&gt;\n    &lt;child link=\"gripper_ee_link\"\
+  /&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"gripper_ee_link\"/&gt;\n  &lt;joint name=\"gripper_ee_fixed_joint\"\
+  \ type=\"fixed\"&gt;\n    &lt;origin rpy=\"0 0 0\" xyz=\"0.088 0.000 -0.257\"/&gt;\n    &lt;parent\
+  \ link=\"gripper_mount_link\"/&gt;\n    &lt;child link=\"gripper_ee_fixed_link\"/&gt;\n \
+  \ &lt;/joint&gt;\n  &lt;link name=\"gripper_ee_fixed_link\"/&gt;\n  &lt;!-- virtually attach a\
+  \ mbl_box_yellow --&gt;\n  &lt;!--joint name=\"box_joint\" type=\"fixed\"&gt;\n      &lt;origin\
+  \ xyz=\"0 0 0\" rpy=\"0 0 0\" /&gt;\n      &lt;parent link=\"${name}_ee_link\"/&gt;\n   \
+  \   &lt;child link=\"box_link\" /&gt;\n    &lt;/joint&gt;\n\n    &lt;link name=\"box_link\"&gt;\n\
+  \      &lt;visual&gt;\n        &lt;origin xyz=\"0.25 0 0.14\" rpy=\"0 0 0\" /&gt;\n        &lt;geometry&gt;\n\
+  \          &lt;box size=\"0.5 0.30 0.28\" /&gt;\n        &lt;/geometry&gt;\n      &lt;/visual&gt;\n\
+  \    &lt;/link--&gt;\n  &lt;transmission name=\"gripper_plate_trans\"&gt;\n    &lt;type&gt;transmission_interface/SimpleTransmission&lt;/type&gt;\n\
+  \    &lt;joint name=\"gripper_plate_joint\"&gt;\n      &lt;hardwareInterface&gt;hardware_interface/PositionJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;hardwareInterface&gt;hardware_interface/VelocityJointInterface&lt;/hardwareInterface&gt;\n\
+  \      &lt;!--hardwareInterface&gt;hardware_interface/EffortJointInterface&lt;/hardwareInterface--&gt;\n\
+  \    &lt;/joint&gt;\n    &lt;actuator name=\"gripper_plate_motor\"&gt;\n      &lt;mechanicalReduction&gt;1&lt;/mechanicalReduction&gt;\n\
+  \    &lt;/actuator&gt;\n  &lt;/transmission&gt;\n  &lt;gazebo&gt;\n    &lt;plugin filename=\"libhwi_switch_gazebo_ros_control.so\"\
+  \ name=\"ros_control\"&gt;\n      &lt;robotNamespace&gt;gripper&lt;/robotNamespace&gt;\n      &lt;filterJointsParam&gt;joint_names&lt;/filterJointsParam&gt;\n\
+  \    &lt;/plugin&gt;\n  &lt;/gazebo&gt;\n  &lt;joint name=\"gripper_cam_mount_joint\" type=\"fixed\"\
+  &gt;\n    &lt;origin rpy=\"1.57079632679 0.0 0.0\" xyz=\"0.0168 -0.07234 0.0\"/&gt;\n   \
+  \ &lt;parent link=\"gripper_plate_link\"/&gt;\n    &lt;child link=\"gripper_cam_mount_link\"\
+  /&gt;\n  &lt;/joint&gt;\n  &lt;link name=\"gripper_cam_mount_link\"/&gt;\n  &lt;joint name=\"gripper_cam_joint\"\
+  \ type=\"fixed\"&gt;\n    &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n    &lt;parent link=\"\
+  gripper_cam_mount_link\"/&gt;\n    &lt;child link=\"gripper_cam_link\"/&gt;\n  &lt;/joint&gt;\n\
+  \  &lt;link name=\"gripper_cam_link\"&gt;\n    &lt;inertial&gt;\n      &lt;mass value=\"0.01\"\
+  /&gt;\n      &lt;origin xyz=\"0 0 0\"/&gt;\n      &lt;inertia ixx=\"0.001\" ixy=\"0.0\" ixz=\"\
+  0.0\" iyy=\"0.001\" iyz=\"0.0\" izz=\"0.001\"/&gt;\n    &lt;/inertial&gt;\n    &lt;visual&gt;\n\
+  \      &lt;origin rpy=\"0 0 0\" xyz=\"0 0 0\"/&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"\
+  package://cob_description/meshes/sensors/realsense_d435.stl\"/&gt;\n      &lt;/geometry&gt;\n\
+  \    &lt;/visual&gt;\n    &lt;collision&gt;\n      &lt;origin rpy=\"0 0 0\" xyz=\"0.0 0.0 0.0\"\
+  /&gt;\n      &lt;geometry&gt;\n        &lt;mesh filename=\"package://cob_description/meshes/sensors/realsense_d435.stl\"\
+  /&gt;\n      &lt;/geometry&gt;\n    &lt;/collision&gt;\n  &lt;/link&gt;\n  &lt;gazebo reference=\"gripper_cam_link\"\
+  &gt;\n    &lt;sensor name=\"gripper_cam_depth_frame\" type=\"depth\"&gt;\n      &lt;always_on&gt;true&lt;/always_on&gt;\n\
+  \      &lt;update_rate&gt;15.0&lt;/update_rate&gt;\n      &lt;camera&gt;\n        &lt;horizontal_fov&gt;1.4870205227&lt;/horizontal_fov&gt;\n\
+  \        &lt;image&gt;\n          &lt;format&gt;B8G8R8&lt;/format&gt;\n          &lt;width&gt;1280&lt;/width&gt;\n\
+  \          &lt;height&gt;720&lt;/height&gt;\n        &lt;/image&gt;\n        &lt;clip&gt;\n          &lt;near&gt;0.2&lt;/near&gt;\n\
+  \          &lt;far&gt;10.0&lt;/far&gt;\n        &lt;/clip&gt;\n        &lt;noise&gt;\n          &lt;type&gt;gaussian&lt;/type&gt;\n\
+  \          &lt;mean&gt;0.0&lt;/mean&gt;\n          &lt;stddev&gt;0.0&lt;/stddev&gt;\n        &lt;/noise&gt;\n\
+  \      &lt;/camera&gt;\n      &lt;plugin filename=\"libgazebo_ros_depth_camera.so\" name=\"\
+  gripper_cam_frame_controller\"&gt;\n        &lt;updateRate&gt;15.0&lt;/updateRate&gt;\n       \
+  \ &lt;cameraName&gt;gripper_cam&lt;/cameraName&gt;\n        &lt;frameName&gt;gripper_cam_color_optical_frame&lt;/frameName&gt;\n\
+  \        &lt;imageTopicName&gt;rgb/image_raw&lt;/imageTopicName&gt;\n        &lt;cameraInfoTopicName&gt;rgb/camera_info&lt;/cameraInfoTopicName&gt;\n\
+  \        &lt;pointCloudTopicName&gt;depth/points&lt;/pointCloudTopicName&gt;\n        &lt;depthImageTopicName&gt;depth/image_raw&lt;/depthImageTopicName&gt;\n\
+  \        &lt;depthImageCameraInfoTopicName&gt;depth/camera_info&lt;/depthImageCameraInfoTopicName&gt;\n\
+  \        &lt;pointCloudCutoff&gt;0.2&lt;/pointCloudCutoff&gt;\n        &lt;pointCloudCutoffMax&gt;5.0&lt;/pointCloudCutoffMax&gt;\n\
+  \        &lt;distortionK1&gt;0.0&lt;/distortionK1&gt;\n        &lt;distortionK2&gt;0.0&lt;/distortionK2&gt;\n\
+  \        &lt;distortionK3&gt;0.0&lt;/distortionK3&gt;\n        &lt;distortionT1&gt;0.0&lt;/distortionT1&gt;\n\
+  \        &lt;distortionT2&gt;0.0&lt;/distortionT2&gt;\n        &lt;CxPrime&gt;0.0&lt;/CxPrime&gt;\n    \
+  \    &lt;Cx&gt;0.0&lt;/Cx&gt;\n        &lt;Cy&gt;0.0&lt;/Cy&gt;\n        &lt;focalLength&gt;0.0&lt;/focalLength&gt;\n\
+  \      &lt;/plugin&gt;\n    &lt;/sensor&gt;\n    &lt;!-- ToDo: add plugins for IMU, Fisheye, IR\
+  \ --&gt;\n    &lt;material&gt;IPA/LightGrey&lt;/material&gt;\n  &lt;/gazebo&gt;\n&lt;/robot&gt;\n\n"
+/robot_description_kinematics/arm/avoid_joint_limits_weight: 1
+/robot_description_kinematics/arm/center_joints_weight: 1
+/robot_description_kinematics/arm/kinematics_solver: bio_ik/BioIKKinematicsPlugin
+/robot_description_kinematics/arm/kinematics_solver_attempts: 30
+/robot_description_kinematics/arm/kinematics_solver_search_resolution: 0.005
+/robot_description_kinematics/arm/kinematics_solver_timeout: 0.5
+/robot_description_kinematics/arm/minimal_displacement_weight: 1
+/robot_description_kinematics/arm/position_only_ik: false
+/robot_description_kinematics/arm/solve_type: Speed
+/robot_description_planning/joint_limits/gripper_plate_joint/has_acceleration_limits: false
+/robot_description_planning/joint_limits/gripper_plate_joint/has_velocity_limits: true
+/robot_description_planning/joint_limits/gripper_plate_joint/max_acceleration: 0
+/robot_description_planning/joint_limits/gripper_plate_joint/max_velocity: 0.5
+/robot_description_planning/joint_limits/shoulder_1_joint/has_acceleration_limits: true
+/robot_description_planning/joint_limits/shoulder_1_joint/has_velocity_limits: true
+/robot_description_planning/joint_limits/shoulder_1_joint/max_acceleration: 0.4363
+/robot_description_planning/joint_limits/shoulder_1_joint/max_velocity: 0.7
+/robot_description_planning/joint_limits/shoulder_2_joint/has_acceleration_limits: true
+/robot_description_planning/joint_limits/shoulder_2_joint/has_velocity_limits: true
+/robot_description_planning/joint_limits/shoulder_2_joint/max_acceleration: 4.36
+/robot_description_planning/joint_limits/shoulder_2_joint/max_velocity: 0.13
+/robot_description_planning/joint_limits/torso_1_joint/has_acceleration_limits: true
+/robot_description_planning/joint_limits/torso_1_joint/has_velocity_limits: true
+/robot_description_planning/joint_limits/torso_1_joint/max_acceleration: 1.75
+/robot_description_planning/joint_limits/torso_1_joint/max_velocity: 0.5
+/robot_description_planning/joint_limits/torso_2_joint/has_acceleration_limits: true
+/robot_description_planning/joint_limits/torso_2_joint/has_velocity_limits: true
+/robot_description_planning/joint_limits/torso_2_joint/max_acceleration: 1.75
+/robot_description_planning/joint_limits/torso_2_joint/max_velocity: 0.5
+/robot_description_planning/joint_limits/torso_3_joint/has_acceleration_limits: true
+/robot_description_planning/joint_limits/torso_3_joint/has_velocity_limits: true
+/robot_description_planning/joint_limits/torso_3_joint/max_acceleration: 1.75
+/robot_description_planning/joint_limits/torso_3_joint/max_velocity: 0.5
+/robot_description_planning/joint_limits/wrist_1_joint/has_acceleration_limits: true
+/robot_description_planning/joint_limits/wrist_1_joint/has_velocity_limits: true
+/robot_description_planning/joint_limits/wrist_1_joint/max_acceleration: 0.436
+/robot_description_planning/joint_limits/wrist_1_joint/max_velocity: 0.087
+/robot_description_planning/joint_limits/wrist_2_joint/has_acceleration_limits: true
+/robot_description_planning/joint_limits/wrist_2_joint/has_velocity_limits: true
+/robot_description_planning/joint_limits/wrist_2_joint/max_acceleration: 3.49
+/robot_description_planning/joint_limits/wrist_2_joint/max_velocity: 0.5
+/robot_description_semantic: "&lt;?xml version=\"1.0\" ?&gt;\n&lt;!--This does not replace\
+  \ URDF, and is not an extension of URDF.\n    This is a format for representing\
+  \ semantic information about the robot structure.\n    A URDF file must exist for\
+  \ this robot as well, where the joints and the links that are referenced are defined\n\
+  --&gt;\n&lt;robot name=\"mrl-a\"&gt;\n    &lt;!--GROUPS: Representation of a set of joints and\
+  \ links. This can be useful for specifying DOF to plan for, defining arms, end effectors,\
+  \ etc--&gt;\n    &lt;!--LINKS: When a link is specified, the parent joint of that link\
+  \ (if it exists) is automatically included--&gt;\n    &lt;!--JOINTS: When a joint is specified,\
+  \ the child link of that joint (which will always exist) is automatically included--&gt;\n\
+  \    &lt;!--CHAINS: When a chain is specified, all the links along the chain (including\
+  \ endpoints) are included in the group. Additionally, all the joints that are parents\
+  \ to included links are also included. This means that joints along the chain and\
+  \ the parent joint of the base link are included in the group--&gt;\n    &lt;!--SUBGROUPS:\
+  \ Groups can also be formed by referencing to already defined group names--&gt;\n \
+  \   &lt;group name=\"arm\"&gt;\n        &lt;chain base_link=\"base_link\" tip_link=\"gripper_ee_fixed_link\"\
+  \ /&gt;\n    &lt;/group&gt;\n    &lt;group name=\"gripper_ee_fixed\"&gt;\n        &lt;link name=\"\
+  gripper_ee_fixed_link\" /&gt;\n    &lt;/group&gt;\n    &lt;!--GROUP STATES: Purpose: Define\
+  \ a named state for a particular group, in terms of joint values. This is useful\
+  \ to define states like 'folded arms'--&gt;\n    &lt;group_state name=\"home\" group=\"\
+  arm\"&gt;\n        &lt;joint name=\"shoulder_1_joint\" value=\"0\" /&gt;\n        &lt;joint\
+  \ name=\"shoulder_2_joint\" value=\"0\" /&gt;\n        &lt;joint name=\"torso_1_joint\"\
+  \ value=\"0\" /&gt;\n        &lt;joint name=\"torso_2_joint\" value=\"0\" /&gt;\n       \
+  \ &lt;joint name=\"torso_3_joint\" value=\"0\" /&gt;\n        &lt;joint name=\"wrist_1_joint\"\
+  \ value=\"0\" /&gt;\n        &lt;joint name=\"wrist_2_joint\" value=\"0\" /&gt;\n    &lt;/group_state&gt;\n\
+  \    &lt;group_state name=\"rostest1\" group=\"arm\"&gt;\n        &lt;joint name=\"shoulder_1_joint\"\
+  \ value=\"1.5\" /&gt;\n        &lt;joint name=\"shoulder_2_joint\" value=\"0.4\" /&gt;\n\
+  \        &lt;joint name=\"torso_1_joint\" value=\"1.5\" /&gt;\n        &lt;joint name=\"\
+  torso_2_joint\" value=\"-0.2\" /&gt;\n        &lt;joint name=\"torso_3_joint\" value=\"\
+  0.2\" /&gt;\n        &lt;joint name=\"wrist_1_joint\" value=\"-1.5\" /&gt;\n        &lt;joint\
+  \ name=\"wrist_2_joint\" value=\"0.2\" /&gt;\n    &lt;/group_state&gt;\n    &lt;group_state\
+  \ name=\"rostest2\" group=\"arm\"&gt;\n        &lt;joint name=\"shoulder_1_joint\" value=\"\
+  -1.5\" /&gt;\n        &lt;joint name=\"shoulder_2_joint\" value=\"0.8\" /&gt;\n        &lt;joint\
+  \ name=\"torso_1_joint\" value=\"-1.5\" /&gt;\n        &lt;joint name=\"torso_2_joint\"\
+  \ value=\"0.2\" /&gt;\n        &lt;joint name=\"torso_3_joint\" value=\"-0.2\" /&gt;\n  \
+  \      &lt;joint name=\"wrist_1_joint\" value=\"-3.1\" /&gt;\n        &lt;joint name=\"wrist_2_joint\"\
+  \ value=\"-0.2\" /&gt;\n    &lt;/group_state&gt;\n    &lt;!--END EFFECTOR: Purpose: Represent\
+  \ information about an end effector.--&gt;\n    &lt;end_effector name=\"gripper_ee_fixed\"\
+  \ parent_link=\"gripper_ee_fixed_link\" group=\"gripper_ee_fixed\" parent_group=\"\
+  arm\" /&gt;\n    &lt;!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between\
+  \ a robot link and an external frame of reference (considered fixed with respect\
+  \ to the robot)--&gt;\n    &lt;virtual_joint name=\"virtual_joint\" type=\"planar\" parent_frame=\"\
+  map\" child_link=\"base_footprint\" /&gt;\n    &lt;!--DISABLE COLLISIONS: By default it\
+  \ is assumed that any link of the robot could potentially come into collision with\
+  \ any other link in the robot. This tag disables collision checking between a specified\
+  \ pair of links. --&gt;\n    &lt;disable_collisions link1=\"b_caster_r_wheel_link\" link2=\"\
+  b_caster_rotation_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"\
+  b_caster_r_wheel_link\" link2=\"base_chassis_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"b_caster_r_wheel_link\" link2=\"base_laser_front_link\" reason=\"Never\"\
+  \ /&gt;\n    &lt;disable_collisions link1=\"b_caster_r_wheel_link\" link2=\"base_laser_left_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_r_wheel_link\" link2=\"\
+  base_laser_right_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_r_wheel_link\"\
+  \ link2=\"fl_caster_r_wheel_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"b_caster_r_wheel_link\" link2=\"fl_caster_rotation_link\" reason=\"Never\"\
+  \ /&gt;\n    &lt;disable_collisions link1=\"b_caster_r_wheel_link\" link2=\"fr_caster_r_wheel_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_r_wheel_link\" link2=\"\
+  fr_caster_rotation_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  b_caster_r_wheel_link\" link2=\"gripper_cam_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"b_caster_r_wheel_link\" link2=\"shoulder_1_link\" reason=\"Never\" /&gt;\n\
+  \    &lt;disable_collisions link1=\"b_caster_r_wheel_link\" link2=\"shoulder_2_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_r_wheel_link\" link2=\"\
+  shoulder_2_mimic_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_r_wheel_link\"\
+  \ link2=\"torso_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_r_wheel_link\"\
+  \ link2=\"torso_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_r_wheel_link\"\
+  \ link2=\"torso_3_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_r_wheel_link\"\
+  \ link2=\"torso_base_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  b_caster_r_wheel_link\" link2=\"torso_center_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"b_caster_r_wheel_link\" link2=\"wrist_1_link\" reason=\"Never\" /&gt;\n \
+  \   &lt;disable_collisions link1=\"b_caster_r_wheel_link\" link2=\"wrist_2_link\" reason=\"\
+  Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_rotation_link\" link2=\"base_chassis_link\"\
+  \ reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_rotation_link\"\
+  \ link2=\"base_laser_front_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  b_caster_rotation_link\" link2=\"base_laser_left_link\" reason=\"Never\" /&gt;\n  \
+  \  &lt;disable_collisions link1=\"b_caster_rotation_link\" link2=\"base_laser_right_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_rotation_link\"\
+  \ link2=\"fl_caster_r_wheel_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"b_caster_rotation_link\" link2=\"fl_caster_rotation_link\" reason=\"Never\"\
+  \ /&gt;\n    &lt;disable_collisions link1=\"b_caster_rotation_link\" link2=\"fr_caster_r_wheel_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_rotation_link\"\
+  \ link2=\"fr_caster_rotation_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"b_caster_rotation_link\" link2=\"gripper_cam_link\" reason=\"Never\" /&gt;\n\
+  \    &lt;disable_collisions link1=\"b_caster_rotation_link\" link2=\"gripper_mount_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_rotation_link\"\
+  \ link2=\"gripper_plate_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  b_caster_rotation_link\" link2=\"shoulder_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"b_caster_rotation_link\" link2=\"shoulder_2_link\" reason=\"Never\" /&gt;\n\
+  \    &lt;disable_collisions link1=\"b_caster_rotation_link\" link2=\"shoulder_2_mimic_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_rotation_link\"\
+  \ link2=\"torso_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_rotation_link\"\
+  \ link2=\"torso_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_rotation_link\"\
+  \ link2=\"torso_3_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"b_caster_rotation_link\"\
+  \ link2=\"torso_base_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  b_caster_rotation_link\" link2=\"torso_center_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"b_caster_rotation_link\" link2=\"wrist_1_link\" reason=\"Never\" /&gt;\n\
+  \    &lt;disable_collisions link1=\"b_caster_rotation_link\" link2=\"wrist_2_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_chassis_link\" link2=\"\
+  base_laser_front_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"\
+  base_chassis_link\" link2=\"base_laser_left_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"base_chassis_link\" link2=\"base_laser_right_link\" reason=\"Adjacent\"\
+  \ /&gt;\n    &lt;disable_collisions link1=\"base_chassis_link\" link2=\"fl_caster_r_wheel_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_chassis_link\" link2=\"\
+  fl_caster_rotation_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"\
+  base_chassis_link\" link2=\"fr_caster_r_wheel_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"base_chassis_link\" link2=\"fr_caster_rotation_link\" reason=\"Adjacent\"\
+  \ /&gt;\n    &lt;disable_collisions link1=\"base_chassis_link\" link2=\"shoulder_1_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_chassis_link\" link2=\"\
+  shoulder_2_mimic_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_chassis_link\"\
+  \ link2=\"torso_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_chassis_link\"\
+  \ link2=\"torso_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_chassis_link\"\
+  \ link2=\"torso_3_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_chassis_link\"\
+  \ link2=\"torso_base_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"\
+  base_chassis_link\" link2=\"torso_center_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"base_chassis_link\" link2=\"wrist_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"base_laser_front_link\" link2=\"base_laser_left_link\" reason=\"Adjacent\"\
+  \ /&gt;\n    &lt;disable_collisions link1=\"base_laser_front_link\" link2=\"base_laser_right_link\"\
+  \ reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_front_link\"\
+  \ link2=\"fl_caster_r_wheel_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"base_laser_front_link\" link2=\"fl_caster_rotation_link\" reason=\"Never\"\
+  \ /&gt;\n    &lt;disable_collisions link1=\"base_laser_front_link\" link2=\"fr_caster_r_wheel_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_front_link\" link2=\"\
+  fr_caster_rotation_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  base_laser_front_link\" link2=\"shoulder_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"base_laser_front_link\" link2=\"shoulder_2_mimic_link\" reason=\"Never\"\
+  \ /&gt;\n    &lt;disable_collisions link1=\"base_laser_front_link\" link2=\"torso_1_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_front_link\" link2=\"\
+  torso_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_front_link\"\
+  \ link2=\"torso_3_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_front_link\"\
+  \ link2=\"torso_base_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"\
+  base_laser_front_link\" link2=\"torso_center_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"base_laser_front_link\" link2=\"wrist_2_link\" reason=\"Never\" /&gt;\n \
+  \   &lt;disable_collisions link1=\"base_laser_left_link\" link2=\"base_laser_right_link\"\
+  \ reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_left_link\"\
+  \ link2=\"fl_caster_r_wheel_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"base_laser_left_link\" link2=\"fl_caster_rotation_link\" reason=\"Never\"\
+  \ /&gt;\n    &lt;disable_collisions link1=\"base_laser_left_link\" link2=\"fr_caster_r_wheel_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_left_link\" link2=\"\
+  fr_caster_rotation_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  base_laser_left_link\" link2=\"gripper_cam_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"base_laser_left_link\" link2=\"shoulder_1_link\" reason=\"Never\" /&gt;\n\
+  \    &lt;disable_collisions link1=\"base_laser_left_link\" link2=\"shoulder_2_mimic_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_left_link\" link2=\"\
+  torso_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_left_link\"\
+  \ link2=\"torso_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_left_link\"\
+  \ link2=\"torso_3_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_left_link\"\
+  \ link2=\"torso_base_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"\
+  base_laser_left_link\" link2=\"torso_center_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"base_laser_left_link\" link2=\"wrist_2_link\" reason=\"Never\" /&gt;\n  \
+  \  &lt;disable_collisions link1=\"base_laser_right_link\" link2=\"fl_caster_r_wheel_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_right_link\" link2=\"\
+  fl_caster_rotation_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  base_laser_right_link\" link2=\"fr_caster_r_wheel_link\" reason=\"Never\" /&gt;\n \
+  \   &lt;disable_collisions link1=\"base_laser_right_link\" link2=\"fr_caster_rotation_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_right_link\" link2=\"\
+  shoulder_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_right_link\"\
+  \ link2=\"shoulder_2_mimic_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  base_laser_right_link\" link2=\"torso_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"base_laser_right_link\" link2=\"torso_2_link\" reason=\"Never\" /&gt;\n \
+  \   &lt;disable_collisions link1=\"base_laser_right_link\" link2=\"torso_3_link\" reason=\"\
+  Never\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_right_link\" link2=\"torso_base_link\"\
+  \ reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"base_laser_right_link\"\
+  \ link2=\"torso_center_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  base_laser_right_link\" link2=\"wrist_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"fl_caster_r_wheel_link\" link2=\"fl_caster_rotation_link\" reason=\"Adjacent\"\
+  \ /&gt;\n    &lt;disable_collisions link1=\"fl_caster_r_wheel_link\" link2=\"fr_caster_r_wheel_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fl_caster_r_wheel_link\"\
+  \ link2=\"fr_caster_rotation_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"fl_caster_r_wheel_link\" link2=\"gripper_cam_link\" reason=\"Never\" /&gt;\n\
+  \    &lt;disable_collisions link1=\"fl_caster_r_wheel_link\" link2=\"shoulder_1_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fl_caster_r_wheel_link\"\
+  \ link2=\"shoulder_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  fl_caster_r_wheel_link\" link2=\"shoulder_2_mimic_link\" reason=\"Never\" /&gt;\n \
+  \   &lt;disable_collisions link1=\"fl_caster_r_wheel_link\" link2=\"torso_1_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fl_caster_r_wheel_link\"\
+  \ link2=\"torso_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fl_caster_r_wheel_link\"\
+  \ link2=\"torso_3_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fl_caster_r_wheel_link\"\
+  \ link2=\"torso_base_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  fl_caster_r_wheel_link\" link2=\"torso_center_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"fl_caster_r_wheel_link\" link2=\"wrist_2_link\" reason=\"Never\" /&gt;\n\
+  \    &lt;disable_collisions link1=\"fl_caster_rotation_link\" link2=\"fr_caster_r_wheel_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fl_caster_rotation_link\"\
+  \ link2=\"fr_caster_rotation_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"fl_caster_rotation_link\" link2=\"gripper_cam_link\" reason=\"Never\"\
+  \ /&gt;\n    &lt;disable_collisions link1=\"fl_caster_rotation_link\" link2=\"gripper_mount_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fl_caster_rotation_link\"\
+  \ link2=\"gripper_plate_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  fl_caster_rotation_link\" link2=\"shoulder_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"fl_caster_rotation_link\" link2=\"shoulder_2_link\" reason=\"Never\" /&gt;\n\
+  \    &lt;disable_collisions link1=\"fl_caster_rotation_link\" link2=\"shoulder_2_mimic_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fl_caster_rotation_link\"\
+  \ link2=\"torso_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fl_caster_rotation_link\"\
+  \ link2=\"torso_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fl_caster_rotation_link\"\
+  \ link2=\"torso_3_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fl_caster_rotation_link\"\
+  \ link2=\"torso_base_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  fl_caster_rotation_link\" link2=\"torso_center_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"fl_caster_rotation_link\" link2=\"wrist_1_link\" reason=\"Never\" /&gt;\n\
+  \    &lt;disable_collisions link1=\"fl_caster_rotation_link\" link2=\"wrist_2_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fr_caster_r_wheel_link\"\
+  \ link2=\"fr_caster_rotation_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"fr_caster_r_wheel_link\" link2=\"gripper_cam_link\" reason=\"Never\" /&gt;\n\
+  \    &lt;disable_collisions link1=\"fr_caster_r_wheel_link\" link2=\"shoulder_1_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fr_caster_r_wheel_link\"\
+  \ link2=\"shoulder_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  fr_caster_r_wheel_link\" link2=\"shoulder_2_mimic_link\" reason=\"Never\" /&gt;\n \
+  \   &lt;disable_collisions link1=\"fr_caster_r_wheel_link\" link2=\"torso_1_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fr_caster_r_wheel_link\"\
+  \ link2=\"torso_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fr_caster_r_wheel_link\"\
+  \ link2=\"torso_3_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fr_caster_r_wheel_link\"\
+  \ link2=\"torso_base_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  fr_caster_r_wheel_link\" link2=\"torso_center_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"fr_caster_r_wheel_link\" link2=\"wrist_1_link\" reason=\"Never\" /&gt;\n\
+  \    &lt;disable_collisions link1=\"fr_caster_r_wheel_link\" link2=\"wrist_2_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fr_caster_rotation_link\"\
+  \ link2=\"gripper_cam_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  fr_caster_rotation_link\" link2=\"gripper_mount_link\" reason=\"Never\" /&gt;\n   \
+  \ &lt;disable_collisions link1=\"fr_caster_rotation_link\" link2=\"gripper_plate_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fr_caster_rotation_link\"\
+  \ link2=\"shoulder_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  fr_caster_rotation_link\" link2=\"shoulder_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"fr_caster_rotation_link\" link2=\"shoulder_2_mimic_link\" reason=\"Never\"\
+  \ /&gt;\n    &lt;disable_collisions link1=\"fr_caster_rotation_link\" link2=\"torso_1_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fr_caster_rotation_link\"\
+  \ link2=\"torso_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fr_caster_rotation_link\"\
+  \ link2=\"torso_3_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"fr_caster_rotation_link\"\
+  \ link2=\"torso_base_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  fr_caster_rotation_link\" link2=\"torso_center_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"fr_caster_rotation_link\" link2=\"wrist_1_link\" reason=\"Never\" /&gt;\n\
+  \    &lt;disable_collisions link1=\"fr_caster_rotation_link\" link2=\"wrist_2_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"gripper_cam_link\" link2=\"\
+  gripper_mount_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"gripper_cam_link\"\
+  \ link2=\"gripper_plate_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"\
+  gripper_cam_link\" link2=\"shoulder_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"gripper_cam_link\" link2=\"shoulder_2_link\" reason=\"Never\" /&gt;\n   \
+  \ &lt;disable_collisions link1=\"gripper_cam_link\" link2=\"shoulder_2_mimic_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"gripper_cam_link\" link2=\"\
+  torso_base_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"gripper_cam_link\"\
+  \ link2=\"wrist_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"gripper_cam_link\"\
+  \ link2=\"wrist_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"gripper_mount_link\"\
+  \ link2=\"gripper_plate_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"\
+  gripper_mount_link\" link2=\"shoulder_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"gripper_mount_link\" link2=\"shoulder_2_link\" reason=\"Never\" /&gt;\n \
+  \   &lt;disable_collisions link1=\"gripper_mount_link\" link2=\"torso_base_link\" reason=\"\
+  Never\" /&gt;\n    &lt;disable_collisions link1=\"gripper_mount_link\" link2=\"wrist_1_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"gripper_mount_link\" link2=\"\
+  wrist_2_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"gripper_plate_link\"\
+  \ link2=\"shoulder_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  gripper_plate_link\" link2=\"wrist_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"gripper_plate_link\" link2=\"wrist_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"shoulder_1_link\" link2=\"shoulder_2_link\" reason=\"Adjacent\" /&gt;\n \
+  \   &lt;disable_collisions link1=\"shoulder_1_link\" link2=\"shoulder_2_mimic_link\"\
+  \ reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"shoulder_1_link\" link2=\"\
+  torso_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"shoulder_1_link\"\
+  \ link2=\"torso_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"shoulder_1_link\"\
+  \ link2=\"torso_3_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"\
+  shoulder_1_link\" link2=\"torso_base_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"shoulder_1_link\" link2=\"torso_center_link\" reason=\"Never\" /&gt;\n  \
+  \  &lt;disable_collisions link1=\"shoulder_1_link\" link2=\"wrist_1_link\" reason=\"\
+  Never\" /&gt;\n    &lt;disable_collisions link1=\"shoulder_1_link\" link2=\"wrist_2_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"shoulder_2_link\" link2=\"\
+  shoulder_2_mimic_link\" reason=\"Default\" /&gt;\n    &lt;disable_collisions link1=\"\
+  shoulder_2_link\" link2=\"torso_base_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"shoulder_2_link\" link2=\"torso_center_link\" reason=\"Never\" /&gt;\n  \
+  \  &lt;disable_collisions link1=\"shoulder_2_link\" link2=\"wrist_1_link\" reason=\"\
+  Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"shoulder_2_link\" link2=\"wrist_2_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"shoulder_2_mimic_link\" link2=\"\
+  torso_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"shoulder_2_mimic_link\"\
+  \ link2=\"torso_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"shoulder_2_mimic_link\"\
+  \ link2=\"torso_3_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"shoulder_2_mimic_link\"\
+  \ link2=\"torso_base_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  shoulder_2_mimic_link\" link2=\"torso_center_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"shoulder_2_mimic_link\" link2=\"wrist_1_link\" reason=\"Never\" /&gt;\n \
+  \   &lt;disable_collisions link1=\"shoulder_2_mimic_link\" link2=\"wrist_2_link\" reason=\"\
+  Never\" /&gt;\n    &lt;disable_collisions link1=\"torso_1_link\" link2=\"torso_2_link\"\
+  \ reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"torso_1_link\" link2=\"\
+  torso_base_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions link1=\"torso_1_link\"\
+  \ link2=\"torso_center_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"\
+  torso_2_link\" link2=\"torso_3_link\" reason=\"Adjacent\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"torso_2_link\" link2=\"torso_base_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"torso_2_link\" link2=\"torso_center_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"torso_3_link\" link2=\"torso_base_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions\
+  \ link1=\"torso_3_link\" link2=\"torso_center_link\" reason=\"Adjacent\" /&gt;\n  \
+  \  &lt;disable_collisions link1=\"torso_base_link\" link2=\"torso_center_link\" reason=\"\
+  Never\" /&gt;\n    &lt;disable_collisions link1=\"torso_base_link\" link2=\"wrist_1_link\"\
+  \ reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"torso_base_link\" link2=\"\
+  wrist_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"torso_center_link\"\
+  \ link2=\"wrist_1_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"torso_center_link\"\
+  \ link2=\"wrist_2_link\" reason=\"Never\" /&gt;\n    &lt;disable_collisions link1=\"wrist_1_link\"\
+  \ link2=\"wrist_2_link\" reason=\"Adjacent\" /&gt;\n&lt;/robot&gt;\n"
+/rviz_alpamayo_20202_7076653676366859927/arm/avoid_joint_limits_weight: 1
+/rviz_alpamayo_20202_7076653676366859927/arm/center_joints_weight: 1
+/rviz_alpamayo_20202_7076653676366859927/arm/kinematics_solver: bio_ik/BioIKKinematicsPlugin
+/rviz_alpamayo_20202_7076653676366859927/arm/kinematics_solver_attempts: 30
+/rviz_alpamayo_20202_7076653676366859927/arm/kinematics_solver_search_resolution: 0.005
+/rviz_alpamayo_20202_7076653676366859927/arm/kinematics_solver_timeout: 0.5
+/rviz_alpamayo_20202_7076653676366859927/arm/minimal_displacement_weight: 1
+/rviz_alpamayo_20202_7076653676366859927/arm/position_only_ik: false
+/rviz_alpamayo_20202_7076653676366859927/arm/solve_type: Speed
+</rosparam>
+<node pkg="joint_state_publisher" type="joint_state_publisher" ns="/" args="" respawn="False" respawn_delay="0.0" name="joint_state_publisher" required="False">
+</node>
+<node pkg="moveit_ros_move_group" type="move_group" ns="/" args="--debug" output="screen" respawn="False" respawn_delay="0.0" name="move_group" required="False">
+  <env name="DISPLAY" value=":1" />
+</node>
+<node pkg="robot_state_publisher" type="robot_state_publisher" ns="/" args="" output="screen" respawn="True" respawn_delay="0.0" name="robot_state_publisher" required="False">
+</node>
+<node pkg="rviz" type="rviz" ns="/" args="-d /home/fxm/projects/default/mojin_ws/src/mojin_manipulation/mrl-a_moveit_config/launch/moveit.rviz" output="screen" respawn="False" respawn_delay="0.0" name="rviz_alpamayo_20202_7076653676366859927" required="False">
+</node>
+<node pkg="tf2_ros" type="static_transform_publisher" ns="/" args="0 0 0 0 0 0 1 map base_footprint" respawn="False" respawn_delay="0.0" name="virtual_joint_broadcaster_0" required="False">
+</node>
+</launch>
