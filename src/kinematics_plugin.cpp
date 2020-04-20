@@ -558,8 +558,9 @@ struct BioIKKinematicsPlugin : kinematics::KinematicsBase {
     // wrap angles
     for (auto ivar : problem.active_variables) {
       auto v = state[ivar];
-      if (robot_info.isRevolute(ivar) &&
-          robot_model->getMimicJointModels().empty()) {
+      //if (robot_info.isRevolute(ivar) &&
+      //    robot_model->getMimicJointModels().empty()) {
+      if (robot_info.isRevolute(ivar)) {
         auto r = problem.initial_guess[ivar];
         auto lo = robot_info.getMin(ivar);
         auto hi = robot_info.getMax(ivar);
